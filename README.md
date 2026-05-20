@@ -49,6 +49,7 @@ DB_NAME=postgres
 DB_USER=admin
 DB_PASSWORD=secret
 DB_HOST=localhost
+```
 
 ### 2. Dependency Installation
 Install the required Python packages:
