@@ -1,0 +1,26 @@
+[
+  {
+    "question": "List all products",
+    "generated_sql": "SELECT * FROM products;",
+    "executed_successfully": "Yes",
+    "retry_needed": "No",
+    "latency_seconds": 1.99,
+    "final_status": "Success"
+  },
+  {
+    "question": "How many customers are located in the USA?",
+    "generated_sql": "SELECT COUNT(customerNumber) FROM customers WHERE country = 'USA';",
+    "executed_successfully": "Yes",
+    "retry_needed": "No",
+    "latency_seconds": 2.56,
+    "final_status": "Success"
+  },
+  {
+    "question": "Show orders shipped from Germany",
+    "generated_sql": "SELECT T1.* FROM orders AS T1 JOIN customers AS T2 ON T1.customerNumber = T2.customerNumber WHERE T2.country = 'Germany';",
+    "executed_successfully": "Yes",
+    "retry_needed": "No",
+    "latency_seconds": 2.38,
+    "final_status": "Success"
+  }
+]
