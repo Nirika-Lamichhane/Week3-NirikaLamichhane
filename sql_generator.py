@@ -31,6 +31,26 @@ def generate_structured_sql(question: str):
     )
     return completion.choices[0].message.parsed
 
+def generate_summary(question: str, data: list) -> str:
+    """
+    Takes the user question and the raw data from PostgreSQL 
+    and returns a natural language summary.
+    """
+    prompt = f"""
+    You are a helpful assistant.
+    Question: {question}
+    Data: {data}
+    
+    Task: Write a single, natural-language sentence summarizing the data provided 
+    in relation to the question. If the data is empty, say no results were found.
+    """
+    
+    completion = client.chat.completions.create(
+        model="gemini-2.5-flash",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return completion.choices[0].message.content
+
 '''
 our response format in the pydantic includes the intents and all along with the generated string sql as well
 so when we call this generate function, it returns the sql decomposition as well as the sql queries
