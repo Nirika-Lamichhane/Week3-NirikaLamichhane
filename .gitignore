@@ -1,0 +1,6 @@
+venv/
+.env
+__pycache__/
+logs/app.log
+query_execution_logs.json
+.DS_Store
